@@ -1,4 +1,4 @@
-<?php defined('APP') ? or die('direct script access denied'); ?>
+<?php defined('APP')  or die('direct script access denied'); ?>
 <div class="class_16" >
     <i class="bi bi-exclamation-circle-fill class_14">
     </i>

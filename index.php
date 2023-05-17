@@ -19,9 +19,20 @@
 
 	<style> 
 
+		@keyframes appear{
+			0%{
+				opacity: 0;
+			}
+			100%{
+				opacity: 1;
+			}
+		}
+
 		.hide{
 			display:none;
 		}
+
+
 	</style>
 	<section class="class_1" >
 		
@@ -29,8 +40,8 @@
 		<div class="class_11" >
 			<div class="class_12" >
 
-				<?php include('success.inc.php')?>
-				<?php include('failed.inc.php') ?>
+				<?php // include('success.inc.php')?>
+				<?php // include('failed.inc.php') ?>
 					
 				
 			</div>
@@ -54,16 +65,16 @@
 				<div class="class_13" >
 					<i class="bi bi-info-circle-fill class_14">
 					</i>
-					<div class="class_15" style="cursor:pointer;text-align:center;" >
-						You're not logged in <br> Click here to Login 
+					<div onclick="signup.show()"  class ="class_15" style="cursor:pointer;text-align:center;" >
+						You're not logged in <br> Click here to Login and post 
 						<br>
 					</div>
 				</div>
-				<div>Click here to Login and post </div>
+				
 			<?php endif;?>
 
 
-			<div class="class_42" >
+			<div class="class_42" style="animation: appear 3s ease;">
 				<div class="class_45" >
 					<img src="assets/images/59.png" class="class_47" >
 					<h2 class="class_48"  >
@@ -89,10 +100,13 @@
 				</div>
 			</div>
 			
-			<div class="class_37" >
+			<div class="class_37" style="display: flex; justify-content: space-between; ">
 				<button class="class_54"  >
 					Prev_page
 				</button>
+
+				<div>Page 1 </div>
+
 				<button class="class_39"  >
 					Next_page
 				</button>
@@ -103,7 +117,7 @@
 		</div>
 		
 		<br><br>
-		<?php include('signup.inc.php')  ?>
+		<?php include('signup.inc.php');  ?>
 	</section>
 	
 </body>
