@@ -4,7 +4,7 @@
 		Signup
 	</h1>
 	<img src="assets/images/slack.png" class="class_56" >
-	<form onsubmit="signup.submit(event)" method = "post" class="class_57" >
+	<form onsubmit="signup.submit(event)" method = "post" class="js-signup-form" "class_57" >
 		<div class="class_30" >
 			<div class="class_58" >
 				<label class="class_32"  >
@@ -22,13 +22,13 @@
 				<label class="class_32"  >
 					Password:
 				</label>
-				<input placeholder="Password" type="password" name="password" class="class_33" >
+				<input placeholder="Password" type="password" name="pass" class="class_33" >
 			</div>
 			<div class="class_58" >
 				<label class="class_36"  >
 					Retype Password:
 				</label>
-				<input placeholder="Retype Password" type="password" name="retype_password" class="class_33" >
+				<input placeholder="Retype Password" type="password" name="re_pass" class="class_33" >
 			</div>
 			<div class="class_59" >
 				<button class="class_60"  >
@@ -44,7 +44,7 @@
 <script> 
 	var signup = {
 
-		show: function(){
+		show: function(){ 
 			document.querySelector(".js-signup-modal").classList.remove('hide');
 		},
 
@@ -54,12 +54,19 @@
 
 		submit: function(e){ 
 
-			e.preventDefault();
-			let form = e.currentTarget;
+			e.preventDefault(); //prevent default browser submission settings
+			let inputs = e.currentTarget.querySelectorAll("input");
+			let form = new FormData(); 
 
+			for(var i = inputs.length - 1; i >= 0; i--) {
+				form.append(inputs[i].name, inputs[i].value);
+			}
+				
+			
+			let form = document.querySelector(".js-signup-form");
 			var ajax = new XMLHttpRequest();
 
-			ajax.addEventListener('readystatechange'){ //Listen for specific events
+			ajax.addEventListener('readystatechange', function(){  //Listen for specific events
 
 				if(ajax.readyState == 4 ) {
 
@@ -71,7 +78,7 @@
 					}
 					
 				}
-			}
+			});
 
 			ajax.open('post', 'ajax.inc.php', true);
 			ajax.send(form)

@@ -65,7 +65,7 @@
 				<div class="class_13" >
 					<i class="bi bi-info-circle-fill class_14">
 					</i>
-					<div onclick="signup.show()"  class ="class_15" style="cursor:pointer;text-align:center;" >
+					<div onclick="signup.show();" class ="class_15" style="cursor:pointer;text-align:center;" >
 						You're not logged in <br> Click here to Login and post 
 						<br>
 					</div>

@@ -1,3 +1,3 @@
 <?php 
 
-echo "everything working;
+print_r($_POST);
