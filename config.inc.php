@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php 
 
 define('APP', 'quick_forum');
@@ -14,3 +15,8 @@ if(!$con) {
 	echo "Could not connect to the database".mysqli_error($con);
 }
 
+=======
+<?php
+
+    define ('APP', 'Forum');
+>>>>>>> 42c8624f75cc790c480b94edd0ae283b08d9490d

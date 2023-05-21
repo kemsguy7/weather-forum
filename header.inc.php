@@ -10,7 +10,11 @@
 						</path>
 					</svg>
 				</div>
+<<<<<<< HEAD
 				  <div  class="item_class_2 class_7">
+=======
+				<div  class="item_class_2 class_7">
+>>>>>>> 42c8624f75cc790c480b94edd0ae283b08d9490d
 					<a href="index.php" class="class_8"  >
 						Home
 					</a>
@@ -22,6 +26,7 @@
 					</a>
 				</div>
 			</div>
+<<<<<<< HEAD
 			<div class="class_9">
 				<?php if(logged_in()):?>
 		 			<!--<img src="<?php get_image($_SESSION['USER']['image'])?>" class="class_10" > -->
@@ -81,3 +86,10 @@
 
 
 
+=======
+			<div class="class_9"  >
+				<img src="assets/images/user.jpg" class="class_10" >
+				Hi, User
+			</div>
+		</header>
+>>>>>>> 42c8624f75cc790c480b94edd0ae283b08d9490d

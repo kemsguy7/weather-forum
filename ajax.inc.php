@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 
 require('config.inc.php');
@@ -68,3 +69,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_POST['data_type'])) {
 }
 
 echo json_encode($info);
+=======
+<?php 
+
+print_r($_POST);
+>>>>>>> 42c8624f75cc790c480b94edd0ae283b08d9490d

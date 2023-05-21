@@ -52,6 +52,7 @@
 							<br>
 						</div>
 					</div>
+<<<<<<< HEAD
 					<a href ="profile-settings.php"> 
 						<button> 
 							Edit Profile
@@ -60,6 +61,13 @@
 					<button onclick="user.logout()">
 						Logout
 					</button>
+=======
+					<a href ="profile-settings.php"`> 
+						<button> 
+							Edit Profile	
+						</button>
+					</a>
+>>>>>>> 42c8624f75cc790c480b94edd0ae283b08d9490d
 					<div style="clear both"> </div>
 				</div>
 				

@@ -16,6 +16,10 @@
 </head>
 <body>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 42c8624f75cc790c480b94edd0ae283b08d9490d
 	<style> 
 
 		@keyframes appear{
@@ -40,7 +44,13 @@
 			<div class="class_12" >
 
 				<?php // include('success.inc.php')?>
+<<<<<<< HEAD
 				<?php // include('failed.inc.php') ?>			
+=======
+				<?php // include('failed.inc.php') ?>
+					
+				
+>>>>>>> 42c8624f75cc790c480b94edd0ae283b08d9490d
 			</div>
 			<h1 class="class_41"  >
 				Posts
@@ -62,17 +72,30 @@
 				<div class="class_13" >
 					<i class="bi bi-info-circle-fill class_14">
 					</i>
+<<<<<<< HEAD
 					<div onclick="login.show();" class ="class_15" style="cursor:pointer;text-align:center;" >
+=======
+					<div onclick="signup.show();" class ="class_15" style="cursor:pointer;text-align:center;" >
+>>>>>>> 42c8624f75cc790c480b94edd0ae283b08d9490d
 						You're not logged in <br> Click here to Login and post 
 						<br>
 					</div>
 				</div>
 				
 			<?php endif;?>
+<<<<<<< HEAD
 			<div class="class_42" style="animation: appear 3s ease;">
 				<div class="class_45" >
 					<img src="assets/images/59.png" class="class_47" >
 					<h2 class="class_48">
+=======
+
+
+			<div class="class_42" style="animation: appear 3s ease;">
+				<div class="class_45" >
+					<img src="assets/images/59.png" class="class_47" >
+					<h2 class="class_48"  >
+>>>>>>> 42c8624f75cc790c480b94edd0ae283b08d9490d
 						Jane Name
 						<br>
 					</h2>
@@ -113,7 +136,14 @@
 		
 		<br><br>
 		<?php include('signup.inc.php');  ?>
+<<<<<<< HEAD
 		<?php include('login.inc.php');  ?>
 	</section>
 	
 </body>
+=======
+	</section>
+	
+</body>
+</html>
+>>>>>>> 42c8624f75cc790c480b94edd0ae283b08d9490d
