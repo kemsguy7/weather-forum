@@ -40,14 +40,9 @@
 				<label class="class_36"  >
 					Retype Password:
 				</label>
-<<<<<<< HEAD
 				<input placeholder="Retype Password" type="password" name="re_pass" class="class_33" required="true">
 			</div>
 			<div> Already have an account? <span stye="color:blue; padding: 10px; cursor: pointer;" onclick="login.show()"> Click here to login</span> </div>
-=======
-				<input placeholder="Retype Password" type="password" name="re_pass" class="class_33" >
-			</div>
->>>>>>> 42c8624f75cc790c480b94edd0ae283b08d9490d
 			<div class="class_59" >
 				<button class="class_60"  >
 					Signup
@@ -64,15 +59,12 @@
 
 		show: function(){ 
 			document.querySelector(".js-signup-modal").classList.remove('hide');
-<<<<<<< HEAD
 			document.querySelector(".js-login-modal").classList.add('hide');
 		},
 
 		hide: function(){ 
 			document.querySelector(".js-signup-modal").classList.add('hide');
 			
-=======
->>>>>>> 42c8624f75cc790c480b94edd0ae283b08d9490d
 		},
 
 		cancel: function(){
@@ -106,7 +98,6 @@
 
 					if(ajax.status == 200) {
 
-<<<<<<< HEAD
 						//console.log(ajax.responseText); //used for debugging purposes to log errors to the console
 						let obj = JSON.parse(ajax.responseText);
 						alert(obj.message);
@@ -114,9 +105,6 @@
 						//alert(ajax.responseText);
 						if(obj.success)
 							window.location.reload();
-=======
-						alert(ajax.responseText);
->>>>>>> 42c8624f75cc790c480b94edd0ae283b08d9490d
 					}else {
 						alert("Please check your internet connection");
 					}
@@ -125,7 +113,6 @@
 			});
 
 			ajax.open('post', 'ajax.inc.php', true);
-<<<<<<< HEAD
 
 
 
@@ -3004,8 +2991,6 @@
 
 
 
-=======
->>>>>>> 42c8624f75cc790c480b94edd0ae283b08d9490d
 			ajax.send(form)
 		},
 	};

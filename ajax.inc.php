@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 <?php
 
 require('config.inc.php');
@@ -32,12 +32,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_POST['data_type'])) {
             //$rows = $rows[0];
             $password = password_hash($password, PASSWORD_DEFAULT);  //hash the passwords
             $query = "INSERT INTO users (username, email, password, date,image) VALUES ('$username', '$email', '$password', '$date','bg.png')";
-            $result = query($query);
+             query($query);
 
-            if ($result) {
+             $query = "select * from users where email = '$email' limit 1";
+             $row = query($query);
+
+            if ($row) {
+
+                $row = $row[0];
                 $info['success'] = true;
                 $info['message'] = "Your profile was created successfully";
-                authenticate($result);
+                authenticate($row);
             } else {
                 $info['message'] = "Failed to create profile";
             }
@@ -69,8 +74,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_POST['data_type'])) {
 }
 
 echo json_encode($info);
-=======
 <?php 
 
 print_r($_POST);
->>>>>>> 42c8624f75cc790c480b94edd0ae283b08d9490d

@@ -1,5 +1,4 @@
-<?php
-<<<<<<< HEAD
+<?php 
 session_start(); //this starts the session, it's the very first code that should be written at the beginning of a php script
 
 defined('APP') or die('direct script access denied');
@@ -56,7 +55,7 @@ function get_image($path)
 echo "<pre>";
 print_r($_SESSION['USER']);
 */
-=======
+
 
 defined('APP') or die('direct script access denied');
 
@@ -64,4 +63,4 @@ function logged_in() {
     return false;
  
 }
->>>>>>> 42c8624f75cc790c480b94edd0ae283b08d9490d
+
