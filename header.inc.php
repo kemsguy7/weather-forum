@@ -24,7 +24,7 @@
 			</div>
 			<div class="class_9">
 				<?php if(logged_in()):?>
-		 			<!--<img src="<?php get_image($_SESSION['USER']['image'])?>" class="class_10" > -->
+		 			<img src="<?= get_image($_SESSION['USER']['image'])?>" class="class_10" > 
 					<a href="profile.php">	Hi, <?php echo ($_SESSION['USER']['username'])?>
 					</a>
 

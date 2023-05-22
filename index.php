@@ -47,7 +47,7 @@
 			</h1>
 
 			<?php if(logged_in()): ?>
-				<div class="class_42" >
+				<form onclick="post.submit(event)" method="post" class="class_42" >
 					<div class="class_43" >
 						<textarea placeholder="Whats on your mind?" name="comments" class="class_44" >
 						</textarea>
@@ -57,7 +57,7 @@
 							Post
 						</button>
 					</div>
-				</div>
+				</form>
 			<?php else: ?>
 				<div class="class_13" >
 					<i class="bi bi-info-circle-fill class_14">
@@ -117,3 +117,49 @@
 	</section>
 	
 </body>
+
+<script type="text/javascript">
+	var post = {
+		submit: function(e){ 
+
+			e.preventDefault(); //prevent default browser submission settings
+			let inputs = e.currentTarget.querySelectorAll("input");
+			let form = new FormData(); 
+
+			for(var i = inputs.length - 1; i >= 0; i--) {
+				form.append(inputs[i].name, inputs[i].value);
+			}
+
+
+			form.append('data_type', 'add_post');  //assigning the data type of the signin form
+				
+			//let form = document.querySelector(".js-signup-form");
+				
+			
+			var ajax = new XMLHttpRequest();
+
+			ajax.addEventListener('readystatechange', function(){  //Listen for specific events
+
+				if(ajax.readyState == 4 ) {
+
+					if(ajax.status == 200) {
+
+						//console.log(ajax.responseText); //used for debugging purposes to log errors to the console
+						let obj = JSON.parse(ajax.responseText);
+						alert(obj.message);
+
+						//alert(ajax.responseText);
+						if(obj.success)
+							window.location.reload();
+					}else {
+						alert("Please check your internet connection");
+					}
+					
+				}
+			});
+
+			ajax.open('post', 'ajax.inc.php', true);
+	}
+</script>
+
+</html>

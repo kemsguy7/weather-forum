@@ -15,6 +15,4 @@ if(!$con) {
 	echo "Could not connect to the database".mysqli_error($con);
 }
 
-<?php
-
-    define ('APP', 'Forum');
+  

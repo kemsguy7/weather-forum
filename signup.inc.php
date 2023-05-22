@@ -1,18 +1,18 @@
 <div class="js-signup-modal class_55 hide">
-<<<<<<< HEAD
+
 	<div onclick="signup.cancel()" class="text-right cancel" style ="float:right;" > X </div>
-=======
+
 	<div onclick="signup.cancel()" class="text-right cancel" > X </div>
->>>>>>> 42c8624f75cc790c480b94edd0ae283b08d9490d
+
 	<h1 class="class_27" >
 		Signup
 	</h1>
 	<img src="assets/images/slack.png" class="class_56" >
-<<<<<<< HEAD
+
 	<form onsubmit="signup.submit(event)" method = "post" class="class_57" >
-=======
+
 	<form onsubmit="signup.submit(event)" method = "post" class="js-signup-form" "class_57" >
->>>>>>> 42c8624f75cc790c480b94edd0ae283b08d9490d
+
 		<div class="class_30" >
 			<div class="class_58" >
 				<label class="class_32"  >
@@ -30,11 +30,11 @@
 				<label class="class_32"  >
 					Password:
 				</label>
-<<<<<<< HEAD
+
 				<input placeholder="Password" type="password" name="pass" class="class_33" required="true">
-=======
-				<input placeholder="Password" type="password" name="pass" class="class_33" >
->>>>>>> 42c8624f75cc790c480b94edd0ae283b08d9490d
+
+			
+
 			</div>
 			<div class="class_58" >
 				<label class="class_36"  >
@@ -80,16 +80,13 @@
 			for(var i = inputs.length - 1; i >= 0; i--) {
 				form.append(inputs[i].name, inputs[i].value);
 			}
-<<<<<<< HEAD
+
 
 			form.append('data_type', 'signup');  //assigning the data type of the signin form
 				
 			//let form = document.querySelector(".js-signup-form");
-=======
 				
 			
-			let form = document.querySelector(".js-signup-form");
->>>>>>> 42c8624f75cc790c480b94edd0ae283b08d9490d
 			var ajax = new XMLHttpRequest();
 
 			ajax.addEventListener('readystatechange', function(){  //Listen for specific events

@@ -20,19 +20,20 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_POST['data_type'])) {
 
         // Check if this email already exists
         $query = "SELECT * FROM users WHERE email = '$email' LIMIT 1";
-        $rows = query($query);
+        $row = query($query);
 
-        if ($rows) {  //checking if a email address existw
+        if ($row) {  //checking if a email address existw
             $info['message'] = "That email already exists";
         } else if($password !== $password_retype) {
 
             $info['message'] = "Passwords don't mactch";
         } else {
 
-            //$rows = $rows[0];
+            //$row = $row[0];
             $password = password_hash($password, PASSWORD_DEFAULT);  //hash the passwords
-            $query = "INSERT INTO users (username, email, password, date,image) VALUES ('$username', '$email', '$password', '$date','bg.png')";
+            $query = "insert into users (username, email, password, date,image) VALUES ('$username', '$email', '$password', '$date','bg.png')";
              query($query);
+
 
              $query = "select * from users where email = '$email' limit 1";
              $row = query($query);
@@ -52,12 +53,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_POST['data_type'])) {
 
         // Check if this account exists
         $query = "SELECT * FROM users WHERE email = '$email' LIMIT 1";
-        $rows = query($query);
+        $row = query($query);
 
-        if (!$rows) {
+        if (!$row) {
             $info['message'] = "Wrong email or password";
         } else {
-            $row = $rows[0];
+            $row = $row[0];
 
             if (password_verify($_POST['pass'], $row['password'])) {
                 $info['success'] = true;
@@ -74,6 +75,5 @@ if ($_SERVER['REQUEST_METHOD'] == "POST" && !empty($_POST['data_type'])) {
 }
 
 echo json_encode($info);
-<?php 
 
-print_r($_POST);
+//print_r($_POST);

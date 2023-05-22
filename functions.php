@@ -3,6 +3,16 @@ session_start(); //this starts the session, it's the very first code that should
 
 defined('APP') or die('direct script access denied');
 
+function check_login() { // This function checks if a user is logged in and restricts unauthorized access to some pages
+
+	if(!logged_in()){
+		echo "<script> window.location('index.php') </script>";
+		//header("Location: index.php");
+		die; 
+	}
+}
+//check_login();
+
 function authenticate($row)
 {   
 	$_SESSION['USER'] = $row;
@@ -49,7 +59,7 @@ function get_image($path)
 	if(!empty($path) && file_exists($path))
 		return $path;
 
-	return 'assets/images/user/jpg'; 
+	return './assets/images/user.jpg'; 
 }
 /*
 echo "<pre>";
@@ -57,10 +67,5 @@ print_r($_SESSION['USER']);
 */
 
 
-defined('APP') or die('direct script access denied');
 
-function logged_in() {
-    return false;
- 
-}
 
