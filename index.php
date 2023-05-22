@@ -41,7 +41,7 @@
 
 				<?php // include('success.inc.php')?>
 				<?php // include('failed.inc.php') ?>			
-			</div>
+			</div> 
 			<h1 class="class_41"  >
 				Posts
 			</h1>
@@ -49,7 +49,7 @@
 			<?php if(logged_in()): ?>
 				<form onclick="post.submit(event)" method="post" class="class_42" >
 					<div class="class_43" >
-						<textarea placeholder="Whats on your mind?" name="comments" class="class_44" >
+						<textarea placeholder="Whats on your mind?" name="comments" class="js-post-input class_44" >
 						</textarea>
 					</div> 
 					<div class="class_45" >
@@ -69,31 +69,34 @@
 				</div>
 				
 			<?php endif;?>
-			<div class="class_42" style="animation: appear 3s ease;">
-				<div class="class_45" >
-					<img src="assets/images/59.png" class="class_47" >
-					<h2 class="class_48">
-						Jane Name
-						<br>
-					</h2>
-				</div>
-				<div class="class_49" >
-					<h4 class="class_41"  >
-						3rd Jan 23 14:35 pm
-						<br>
-					</h4>
-					<div class="class_15"  >
-						is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets c
+
+			<section class="js-posts">
+				<div class="class_42" style="animation: appear 3s ease;">
+					<div class="class_45" >
+						<img src="assets/images/59.png" class="class_47" >
+						<h2 class="class_48">
+							Jane Name
+							<br>
+						</h2>
 					</div>
-					<div class="class_51" >
-						<i class="bi bi-chat-left-dots class_52">
-						</i>
-						<div class="class_53"  >
-							Comments
+					<div class="class_49" >
+						<h4 class="class_41"  >
+							3rd Jan 23 14:35 pm
+							<br>
+						</h4>
+						<div class="class_15"  >
+							is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets c
+						</div>
+						<div class="class_51" >
+							<i class="bi bi-chat-left-dots class_52">
+							</i>
+							<div class="class_53"  >
+								Comments
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			</section>
 			
 			<div class="class_37" style="display: flex; justify-content: space-between; ">
 				<button class="class_54"  >
@@ -119,47 +122,53 @@
 </body>
 
 <script type="text/javascript">
+	
+
 	var post = {
-		submit: function(e){ 
 
-			e.preventDefault(); //prevent default browser submission settings
-			let inputs = e.currentTarget.querySelectorAll("input");
-			let form = new FormData(); 
+	submit: function(e) {
+		  
+		e.preventDefault(); 
 
-			for(var i = inputs.length - 1; i >= 0; i--) {
-				form.append(inputs[i].name, inputs[i].value);
-			}
+		let text = document.querySelector(".js-post-input").value.trim();
+		if(text == ""){//check is anything has been filled to be posted
+			alert("Please type something to post");
+			return;
+		}
 
+		let form = new FormData();
+ 
+		form.append('post', text);
+		form.append('data_type', 'add_post'); // assigning the data type of the signin form
+		var ajax = new XMLHttpRequest();
 
-			form.append('data_type', 'add_post');  //assigning the data type of the signin form
-				
-			//let form = document.querySelector(".js-signup-form");
-				
-			
-			var ajax = new XMLHttpRequest();
+		ajax.addEventListener('readystatechange', function() { // Listen for specific events
 
-			ajax.addEventListener('readystatechange', function(){  //Listen for specific events
+			if (ajax.readyState == 4) {
 
-				if(ajax.readyState == 4 ) {
+				if (ajax.status == 200) {
 
-					if(ajax.status == 200) {
+					 console.log(ajax.responseText); // used for debugging purposes to log errors to the console
+					let obj = JSON.parse(ajax.responseText);
+					alert(obj.message);
 
-						//console.log(ajax.responseText); //used for debugging purposes to log errors to the console
-						let obj = JSON.parse(ajax.responseText);
-						alert(obj.message);
-
-						//alert(ajax.responseText);
-						if(obj.success)
-							window.location.reload();
-					}else {
-						alert("Please check your internet connection");
-					}
-					
+					// alert(ajax.responseText);
+					if (obj.success)
+						var post_holder = document.querySelector(".js-posts");
+						post_holder.innerHTML = ajax.responseText;
+						document.querySelector(".js-post-input") = ""; //After the form has been submitted, empty the form values
+						document.querySelector(".js-post-input").focus;
+				} else {
+					alert("Please check your internet connection");
 				}
-			});
+			}
+		});
 
-			ajax.open('post', 'ajax.inc.php', true);
+		ajax.open('post', 'ajax.inc.php', true);
+		ajax.send(form); // send the form data
 	}
+};
+
 </script>
 
 </html>

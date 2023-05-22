@@ -20,23 +20,28 @@ function authenticate($row)
 
 function query($query)
 {
-		global $con;
+    global $con;
 
-		$result = mysqli_query($con, $query);
-		if($result && mysqli_num_rows($result) > 0)
-		{
-			$data = [];
-			while ($row = mysqli_fetch_assoc($result)) {
-			$data[] = $row;
-		} 
+    $result = mysqli_query($con, $query);
 
-
-		return $data;
-	} else {
-		echo "Query failed".mysqli_error($con);
-	}
-	return false;
+    if ($result) {
+        if (mysqli_num_rows($result) > 0) {
+            $data = [];
+            while ($row = mysqli_fetch_assoc($result)) {
+                $data[] = $row;
+            }
+            return $data;
+        } else {
+            // No rows returned
+            return [];
+        }
+    } else {
+        // Query execution failed
+        echo "Query failed: " . mysqli_error($con);
+        return false;
+    }
 }
+
 
 
 function logged_in() {
